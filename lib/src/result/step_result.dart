@@ -1,3 +1,4 @@
+import 'package:survey_kit/src/custom_instruction/instruction_image_result.dart';
 import 'package:survey_kit/src/result/question/agreement_question_result.dart';
 import 'package:survey_kit/src/result/question/boolean_question_result.dart';
 import 'package:survey_kit/src/result/question/date_question_result.dart';
@@ -118,6 +119,8 @@ class _Converter implements JsonConverter<List<QuestionResult>, Object> {
         final qrJson = qr.toJson();
         qrJson['type'] = (VideoStepResult).toString();
         allQuestionResultsEncoded.add(qrJson);
+      } else if (qr is InstructionImageResult) {
+        continue;
       } else {
         throw ('Unhandled Question Result Type');
       }
@@ -159,6 +162,8 @@ class _Converter implements JsonConverter<List<QuestionResult>, Object> {
         results.add(CompletionStepResult.fromJson(qData));
       } else if (qType == (VideoStepResult).toString()) {
         results.add(VideoStepResult.fromJson(qData));
+      } else if (qType is InstructionImageResult) {
+        continue;
       } else {
         throw ('Unhandled Question Result Type');
       }

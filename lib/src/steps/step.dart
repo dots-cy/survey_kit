@@ -1,5 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:survey_kit/src/custom_instruction/instruction_image_step.dart';
 import 'package:survey_kit/src/result/question_result.dart';
 import 'package:survey_kit/src/steps/identifier/step_identifier.dart';
 import 'package:survey_kit/src/steps/predefined_steps/completion_step.dart';
@@ -36,6 +37,8 @@ abstract class Step {
       return QuestionStep.fromJson(json);
     } else if (type == 'completion') {
       return CompletionStep.fromJson(json);
+    } else if (type == 'custom') {
+      return InstructionImageStep.fromJson(json);
     }
     throw StepNotDefinedException();
   }
