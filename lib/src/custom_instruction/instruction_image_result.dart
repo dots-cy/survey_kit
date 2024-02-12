@@ -7,8 +7,7 @@ class InstructionImageResult extends QuestionResult<String> {
     required super.startDate,
     required super.endDate,
     required String super.valueIdentifier,
-    required String
-        super.result, // Fixed parameter name to match QuestionResult expectations
+    required String super.result,
   });
 
   @override

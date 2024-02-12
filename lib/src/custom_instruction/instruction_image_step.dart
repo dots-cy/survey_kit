@@ -42,7 +42,7 @@ class InstructionImageStep extends Step {
               child: Html(data: text),
             ),
         ],
-      ), //Add your view here
+      ),
     );
   }
 
