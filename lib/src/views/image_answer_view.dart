@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:survey_kit/src/answer_format/image_answer_format.dart';
 import 'package:survey_kit/src/result/question/image_question_result.dart';
 import 'package:survey_kit/src/steps/predefined_steps/question_step.dart';
@@ -112,39 +113,39 @@ class _ImageAnswerViewState extends State<ImageAnswerView> {
                 GestureDetector(
                   child: Text('Take a picture'),
                   onTap: () {
-                    // if (_imageAnswerFormat.hintImage != null &&
-                    //     _imageAnswerFormat.hintTitle != null) {
-                    //   showDialog(
-                    //     context: context,
-                    //     builder: (context) => AlertDialog(
-                    //       title: Text(
-                    //         _imageAnswerFormat.hintTitle.toString(),
-                    //         style: TextStyle(color: Colors.black),
-                    //       ),
-                    //       content: Image.network(
-                    //         _imageAnswerFormat.hintImage.toString(),
-                    //       ),
-                    //       actions: [
-                    //         TextButton(
-                    //             onPressed: () => _openCamera(),
-                    //             child: Text('Open Camera')),
-                    //       ],
-                    //     ),
-                    //   );
-                    // } else {
-                    //   _openCamera();
-                    // }
+                    if (_imageAnswerFormat.hintImage != null &&
+                        _imageAnswerFormat.hintTitle != null) {
+                      showDialog(
+                        context: context,
+                        builder: (context) => AlertDialog(
+                          title: Text(
+                            _imageAnswerFormat.hintTitle.toString(),
+                            style: TextStyle(color: Colors.black),
+                          ),
+                          content: Image.network(
+                            _imageAnswerFormat.hintImage.toString(),
+                          ),
+                          actions: [
+                            TextButton(
+                                onPressed: () => _openCamera(),
+                                child: Text('Open Camera')),
+                          ],
+                        ),
+                      );
+                    } else {
+                      _openCamera();
+                    }
                   },
                 ),
                 Padding(padding: EdgeInsets.all(8.0)),
-                // _imageAnswerFormat.useGallery
-                //     ? GestureDetector(
-                //         child: Text('Select from Gallery'),
-                //         onTap: () {
-                //           _openGallery();
-                //         },
-                //       )
-                //     : SizedBox(),
+                _imageAnswerFormat.useGallery
+                    ? GestureDetector(
+                        child: Text('Select from Gallery'),
+                        onTap: () {
+                          _openGallery();
+                        },
+                      )
+                    : SizedBox(),
               ],
             ),
           ),
@@ -153,33 +154,33 @@ class _ImageAnswerViewState extends State<ImageAnswerView> {
     );
   }
 
-  // Future<void> _openCamera() async {
-  //   Container();
+  Future<void> _openCamera() async {
+    Container();
 
-  //   var picture = await ImagePicker().pickImage(
-  //     source: ImageSource.camera,
-  //   );
+    var picture = await ImagePicker().pickImage(
+      source: ImageSource.camera,
+    );
 
-  //   Navigator.pop(context);
+    Navigator.pop(context);
 
-  //   picture?.readAsBytes().then((value) {
-  //     setState(() {
-  //       filePath = picture.path;
-  //     });
-  //   });
-  // }
+    picture?.readAsBytes().then((value) {
+      setState(() {
+        filePath = picture.path;
+      });
+    });
+  }
 
-//   Future<void> _openGallery() async {
-//     var picture = await ImagePicker().pickImage(
-//       source: ImageSource.gallery,
-//     );
+  Future<void> _openGallery() async {
+    var picture = await ImagePicker().pickImage(
+      source: ImageSource.gallery,
+    );
 
-//     Navigator.pop(context);
+    Navigator.pop(context);
 
-//     picture?.readAsBytes().then((value) {
-//       setState(() {
-//         filePath = picture.path;
-//       });
-//     });
-//   }
+    picture?.readAsBytes().then((value) {
+      setState(() {
+        filePath = picture.path;
+      });
+    });
+  }
 }
