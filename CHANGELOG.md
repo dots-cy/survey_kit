@@ -1,3 +1,14 @@
+# 0.3.0
+- BREAKING: ImageAnswer got moved into its own separate package (https://github.com/QuickBirdEng/survey_kit/tree/main/packages/survey_kit_image_answer)
+  - To use it, import survey_kit_image_answer and add it to your dependencies
+  - This will be released as a separate package on pub.dev soon
+# 0.2.1
+- INFO: Updated dependencies (Flutter 3.24.3)
+- FEATURE: Added agreement step
+- FEATURE: Cancel button is configurable now
+- FIX: Hide keyboard when going to the next step
+- FIX: Survey not ending after first completion step
+- FIX: Use BuildContext as default param in survey_controller.dart
 # 0.2.0
 - INFO: Updated dependencies (Flutter 3.13.2)
 # 0.1.3
