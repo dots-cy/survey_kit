@@ -1,8 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:survey_kit/src/answer_format/image_answer_format.dart';
-import 'package:survey_kit/src/result/question/image_question_result.dart';
-import 'package:survey_kit/src/steps/predefined_steps/question_step.dart';
-import 'package:survey_kit/src/views/widget/step_view.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:survey_kit/survey_kit.dart';
 
